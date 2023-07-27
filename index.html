@@ -7,36 +7,101 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Calculator app</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
 
+    *{
+      font-size: 32px;
+      font-family: 'League Spartan', sans-serif;
+      color: hsl(221, 14%, 31%);
+    }
+    body{
+      display:flex;
+      justify-content: center;
+      background-color:hsl(222, 26%, 31%) ;
+      
+    }
+
+     .calc-body{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 40rem;
+      height: 20rem;
+      margin-left: 15rem;
+      margin-right: 15rem;
+      margin-top: 5rem;
+      padding: 3rem;
+      
+    }
+
+    .calc-screen{
+      background-color:  hsl(224, 36%, 15%);
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      text-align: right;
+      padding:1.0rem 0.75rem;
+      width:16rem;
+      border-radius: 10px;
+      color: hsl(0, 0%, 100%);
+      
+    }
+   
+
 .calc-keyboard{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width:35rem;
-  height:35rem;
+  width:17.5rem;
+  height:15rem;
+  background-color: hsl(223, 31%, 20%);
+  border-radius: 10px;
 
-}
-
-.calc-keyboard button {
-  flex:1;
-  margin: 1rem;
-  height: 2.5rem; 
-  
-  
 }
 
 .keyboard-row{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  
 }
+
+.calc-keyboard button {
+  flex:1;
+  margin: 0 0.5rem;
+  height: 2.25rem;
+  border-radius: 10px;
+  background-color:hsl(45, 7%, 89%);
+  box-shadow: 1px 1px hsl(35, 11%, 61%);
+  
+  
+}
+
+.calc-keyboard .del {
+
+background-color: hsl(225, 21%, 49%);
+box-shadow:1px 2px hsl(224, 28%, 35%);
+color: hsl(0, 0%, 100%);
+
+
+}
+
+.calc-keyboard .equal {
+  background-color:  hsl(6, 63%, 50%);
+  box-shadow: 1px 2px hsl(6, 70%, 34%);
+  color: hsl(0, 0%, 100%);}
+
+
     
   </style>
 </head>
+
+
 <body>
 <div class="calc-body">
 
@@ -48,7 +113,7 @@
     <button>7</button>
     <button>8</button>
     <button>9</button>
-    <button class="Delete">DEL</button></div>
+    <button class="del">DEL</button></div>
   
   
   <div class="keyboard-row">
@@ -75,15 +140,12 @@
   </div>
 
   <div class="keyboard-row">
-    <button>RESET</button>
-    <button>=</button>
+    <button class="del">RESET</button>
+    <button class="equal">=</button>
   </div>
 </div>
 </div>
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Dylan Bourque</a>.
-  </div>
+  
 </body>
 </html>
