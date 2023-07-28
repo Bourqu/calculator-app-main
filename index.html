@@ -21,6 +21,11 @@
       font-family: 'League Spartan', sans-serif;
       color: hsl(221, 14%, 31%);
     }
+
+    button{border:none;}
+
+
+
     body{
       display:flex;
       justify-content: center;
@@ -71,7 +76,7 @@
   
 }
 
-.calc-keyboard button {
+.calc-keyboard button{
   flex:1;
   margin: 0 0.5rem;
   height: 2.25rem;
@@ -87,6 +92,7 @@
 background-color: hsl(225, 21%, 49%);
 box-shadow:1px 2px hsl(224, 28%, 35%);
 color: hsl(0, 0%, 100%);
+border:none;
 
 
 }
@@ -95,6 +101,11 @@ color: hsl(0, 0%, 100%);
   background-color:  hsl(6, 63%, 50%);
   box-shadow: 1px 2px hsl(6, 70%, 34%);
   color: hsl(0, 0%, 100%);}
+
+.calc-keyboard .core {
+  font-size: 42px;
+  justify-content: center;
+}
 
 
     
@@ -110,33 +121,33 @@ color: hsl(0, 0%, 100%);
 
 <div class="calc-keyboard">
   <div class="keyboard-row">
-    <button value="7">7</button>
-    <button value="8">8</button>
-    <button value="9">9</button>
+    <button class="core" value="7">7</button>
+    <button class="core" value="8">8</button>
+    <button class="core" value="9">9</button>
     <button class="del">DEL</button></div>
   
   
   <div class="keyboard-row">
-    <button value="4">4</button>
-    <button value="5">5</button>
-    <button value="6">6</button>
-    <button>+</button></div>
+    <button class="core" value="4">4</button>
+    <button class="core" value="5">5</button>
+    <button class="core" value="6">6</button>
+    <button class="core" >+</button></div>
   
  
   <div class="keyboard-row"> 
-    <button value="1">1</button>
-    <button value="2">2</button>
-    <button value="3">3</button>
-    <button>-</button></div>
+    <button class="core" value="1">1</button>
+    <button class="core" value="2">2</button>
+    <button class="core" value="3">3</button>
+    <button class="core" >-</button></div>
 
     </button>
  
   
   <div class="keyboard-row">
-    <button>.</button>
-    <button value="0">0</button>
-    <button>/</button>
-    <button>x</button>
+    <button class="core" >.</button>
+    <button class="core" value="0">0</button>
+    <button class="core" >/</button>
+    <button  class="core" >x</button>
   </div>
 
   <div class="keyboard-row">
