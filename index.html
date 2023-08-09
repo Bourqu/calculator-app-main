@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+ <script src="src.js" defer></script> 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Calculator app</title>
@@ -51,7 +51,7 @@
       margin: 0.5rem 0;
       font-size: 1rem;
       text-align: right;
-      padding:1.0rem 0.75rem;
+      padding:0.75rem 0.75rem;
       width:16rem;
       border-radius: 10px;
       color: hsl(0, 0%, 100%);
@@ -116,43 +116,43 @@ border:none;
 <body>
 <div class="calc-body">
 
-<div class="calc-screen">0</div>
+<div class="calc-screen"></div>
 
 
 <div class="calc-keyboard">
   <div class="keyboard-row">
-    <button class="core" value="7">7</button>
-    <button class="core" value="8">8</button>
-    <button class="core" value="9">9</button>
+    <button data-number class="core" value="7">7</button>
+    <button data-number class="core" value="8">8</button>
+    <button data-number class="core" value="9">9</button>
     <button class="del">DEL</button></div>
   
   
   <div class="keyboard-row">
-    <button class="core" value="4">4</button>
-    <button class="core" value="5">5</button>
-    <button class="core" value="6">6</button>
-    <button class="core" >+</button></div>
+    <button data-number class="core" value="4">4</button>
+    <button data-number class="core" value="5">5</button>
+    <button data-number class="core" value="6">6</button>
+    <button data-plus class="core" >+</button></div>
   
  
   <div class="keyboard-row"> 
-    <button class="core" value="1">1</button>
-    <button class="core" value="2">2</button>
-    <button class="core" value="3">3</button>
-    <button class="core" >-</button></div>
+    <button data-number class="core" value="1">1</button>
+    <button data-number class="core" value="2">2</button>
+    <button data-number class="core" value="3">3</button>
+    <button data-minus class="core" >-</button></div>
 
     </button>
  
   
   <div class="keyboard-row">
-    <button class="core" >.</button>
-    <button class="core" value="0">0</button>
-    <button class="core" >/</button>
-    <button  class="core" >x</button>
+    <button data-decimal class="core" >.</button>
+    <button data-number class="core" value="0">0</button>
+    <button data-divide class="core" >/</button>
+    <button data-multiply class="core" >x</button>
   </div>
 
   <div class="keyboard-row">
-    <button class="del">RESET</button>
-    <button class="equal">=</button>
+    <button data-reset class="del">RESET</button>
+    <button data-equal class="equal">=</button>
   </div>
 </div>
 </div>
