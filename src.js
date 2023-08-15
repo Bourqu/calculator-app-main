@@ -8,10 +8,23 @@ class Calculator {
     this.screen = "";
   }
 
-  delete() {}
+  delete() {
+    this.screen = this.screen.replaceAll(",", "");
+    this.screen = this.screen.slice(0, -1);
+    this.screen = parseFloat(this.screen).toLocaleString("en-US", {
+      maximumFractionDigits: 20,
+    });
+  }
 
   appendNumber(number) {
-    this.screen = number;
+    this.screen += number;
+    this.screen = this.screen.replaceAll(",", "");
+    this.screen = parseFloat(this.screen).toLocaleString("en-US", {
+      maximumFractionDigits: 20,
+    });
+    if (number == ".") {
+      this.screen += ".";
+    }
   }
 
   updateDisplay() {
@@ -28,7 +41,7 @@ const numberButtons = document.querySelectorAll("[data-number]");
 const equalButton = document.querySelector("[data-equal]");
 const deleteButton = document.querySelector("[data-delete]");
 const resetButton = document.querySelector("[data-reset");
-const decimalButton = document.querySelector("[data-decimal]");
+//const decimalButton = document.querySelector("[data-decimal]");
 
 //operations
 const plusButton = document.querySelector("[data-plus");
@@ -48,5 +61,10 @@ numberButtons.forEach((button) => {
 
 resetButton.addEventListener("click", () => {
   calculator.clear();
+  calculator.updateDisplay();
+});
+
+deleteButton.addEventListener("click", () => {
+  calculator.delete();
   calculator.updateDisplay();
 });
