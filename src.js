@@ -41,21 +41,21 @@ class Calculator {
   }
 
   multiply() {
-    this.prior = this.screen;
+    this.prior = String(this.screen);
     this.operator = "*";
   }
   divide() {
-    this.prior = this.screen;
+    this.prior = String(this.screen);
     this.operator = "/";
   }
 
   add() {
-    this.prior = this.screen;
+    this.prior = String(this.screen);
     this.operator = "+";
   }
 
   subtract() {
-    this.prior = this.screen;
+    this.prior = String(this.screen);
     this.operator = "-";
   }
 }
@@ -124,13 +124,13 @@ equalButton.addEventListener("click", () => {
       calculator.operator = "";
       calculator.screen = calculator.prior * calculator.screen;
       calculator.updateDisplay();
-      calculator.prior = calculator.screen;
+      calculator.prior = String(calculator.screen);
       break;
     case "/":
       calculator.operator = "";
       calculator.screen = calculator.prior / calculator.screen;
       calculator.updateDisplay();
-      calculator.prior = calculator.screen;
+      calculator.prior = String(calculator.screen);
       break;
     case "+":
       calculator.operator = "";
