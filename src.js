@@ -1,11 +1,18 @@
 class Calculator {
   constructor(screenText) {
     this.screenText = screenText;
+    this.prior = "";
+    this.operator = "";
     this.clear();
   }
 
   clear() {
     this.screen = "";
+  }
+
+  clearMemory() {
+    this.prior = "";
+    this.operation = "";
   }
 
   delete() {
@@ -17,7 +24,9 @@ class Calculator {
   }
 
   appendNumber(number) {
-    this.screen += number;
+    if (this.screen.length < 12) {
+      this.screen += number;
+    }
     this.screen = this.screen.replaceAll(",", "");
     this.screen = parseFloat(this.screen).toLocaleString("en-US", {
       maximumFractionDigits: 20,
@@ -29,6 +38,25 @@ class Calculator {
 
   updateDisplay() {
     this.screenText.innerText = this.screen;
+  }
+
+  multiply() {
+    this.prior = this.screen;
+    this.operator = "*";
+  }
+  divide() {
+    this.prior = this.screen;
+    this.operator = "/";
+  }
+
+  add() {
+    this.prior = this.screen;
+    this.operator = "+";
+  }
+
+  subtract() {
+    this.prior = this.screen;
+    this.operator = "-";
   }
 }
 
@@ -61,10 +89,72 @@ numberButtons.forEach((button) => {
 
 resetButton.addEventListener("click", () => {
   calculator.clear();
+  calculator.clearMemory();
   calculator.updateDisplay();
 });
 
 deleteButton.addEventListener("click", () => {
   calculator.delete();
   calculator.updateDisplay();
+});
+
+multiplyButton.addEventListener("click", () => {
+  calculator.multiply();
+  calculator.clear();
+});
+
+divideButton.addEventListener("click", () => {
+  calculator.divide();
+  calculator.clear();
+});
+
+plusButton.addEventListener("click", () => {
+  calculator.add();
+  calculator.clear();
+});
+
+minusButton.addEventListener("click", () => {
+  calculator.subtract();
+  calculator.clear();
+});
+
+equalButton.addEventListener("click", () => {
+  switch (calculator.operator) {
+    case "*":
+      calculator.operator = "";
+      calculator.screen = calculator.prior * calculator.screen;
+      calculator.updateDisplay();
+      calculator.prior = calculator.screen;
+      break;
+    case "/":
+      calculator.operator = "";
+      calculator.screen = calculator.prior / calculator.screen;
+      calculator.updateDisplay();
+      calculator.prior = calculator.screen;
+      break;
+    case "+":
+      calculator.operator = "";
+      //his.screen = this.screen.replaceAll(",", "");
+      //this.screen = parseFloat(this.screen)
+      calculator.screen =
+        parseFloat(calculator.prior.replaceAll(",", "")) +
+        parseFloat(calculator.screen.replaceAll(",", ""));
+      calculator.screen = calculator.screen.toLocaleString("en-US", {
+        maximumFractionDigits: 20,
+      });
+      calculator.updateDisplay();
+      calculator.prior = calculator.screen;
+      break;
+    case "-":
+      calculator.operator = "";
+      calculator.screen =
+        parseFloat(calculator.prior.replaceAll(",", "")) -
+        parseFloat(calculator.screen.replaceAll(",", ""));
+      calculator.screen = calculator.screen.toLocaleString("en-US", {
+        maximumFractionDigits: 20,
+      });
+      calculator.updateDisplay();
+      calculator.prior = calculator.screen;
+      break;
+  }
 });
