@@ -24,6 +24,12 @@ class Calculator {
   }
 
   appendNumber(number) {
+    if (this.prior !== "" && this.operator === "") {
+      this.clearMemory();
+      this.clear();
+      this.updateDisplay();
+    }
+
     if (this.screen.length < 12) {
       this.screen += number;
     }
@@ -169,10 +175,6 @@ equalButton.addEventListener("click", () => {
   }
 });
 
-//1) solve the weird issues regarding appending/deleting numbers after operations,
-//should jsut clear memory, screen and add the number
-
 //2) add the different preset backgrounds.
-
 //5) add button noises
 //6 add a press effect
