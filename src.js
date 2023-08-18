@@ -27,6 +27,7 @@ class Calculator {
     if (this.screen.length < 12) {
       this.screen += number;
     }
+
     this.screen = this.screen.replaceAll(",", "");
     this.screen = parseFloat(this.screen).toLocaleString("en-US", {
       maximumFractionDigits: 20,
@@ -122,20 +123,29 @@ equalButton.addEventListener("click", () => {
   switch (calculator.operator) {
     case "*":
       calculator.operator = "";
-      calculator.screen = calculator.prior * calculator.screen;
+      calculator.screen =
+        parseFloat(calculator.prior.replaceAll(",", "")) *
+        parseFloat(calculator.screen.replaceAll(",", ""));
+      calculator.screen = calculator.screen.toLocaleString("en-US", {
+        maximumFractionDigits: 20,
+      });
+
       calculator.updateDisplay();
       calculator.prior = String(calculator.screen);
       break;
     case "/":
       calculator.operator = "";
-      calculator.screen = calculator.prior / calculator.screen;
+      calculator.screen =
+        parseFloat(calculator.prior.replaceAll(",", "")) /
+        parseFloat(calculator.screen.replaceAll(",", ""));
+      calculator.screen = calculator.screen.toLocaleString("en-US", {
+        maximumFractionDigits: 20,
+      });
       calculator.updateDisplay();
       calculator.prior = String(calculator.screen);
       break;
     case "+":
       calculator.operator = "";
-      //his.screen = this.screen.replaceAll(",", "");
-      //this.screen = parseFloat(this.screen)
       calculator.screen =
         parseFloat(calculator.prior.replaceAll(",", "")) +
         parseFloat(calculator.screen.replaceAll(",", ""));
@@ -158,3 +168,11 @@ equalButton.addEventListener("click", () => {
       break;
   }
 });
+
+//1) solve the weird issues regarding appending/deleting numbers after operations,
+//should jsut clear memory, screen and add the number
+
+//2) add the different preset backgrounds.
+
+//5) add button noises
+//6 add a press effect
