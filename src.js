@@ -30,6 +30,10 @@ class Calculator {
       this.updateDisplay();
     }
 
+    if (this.screen === "" && number == ".") {
+      this.screen = "0.";
+    }
+
     if (this.screen.length < 12) {
       this.screen += number;
     }
@@ -38,7 +42,7 @@ class Calculator {
     this.screen = parseFloat(this.screen).toLocaleString("en-US", {
       maximumFractionDigits: 20,
     });
-    if (number == ".") {
+    if (number == "." && this.screen !== "") {
       this.screen += ".";
     }
   }
@@ -141,6 +145,12 @@ equalButton.addEventListener("click", () => {
       break;
     case "/":
       calculator.operator = "";
+      if (calculator.screen == "0") {
+        calculator.prior = "";
+        calculator.screen = "DIV-BY-ZERO-ERROR";
+        calculator.updateDisplay();
+        return;
+      }
       calculator.screen =
         parseFloat(calculator.prior.replaceAll(",", "")) /
         parseFloat(calculator.screen.replaceAll(",", ""));
@@ -176,5 +186,10 @@ equalButton.addEventListener("click", () => {
 });
 
 //2) add the different preset backgrounds.
+//weird decimal behaviour to be solved.
+// problem is if we parse 9000.0 ecome 9,000
+// it can't do #.0, automaticall resets.
+// allowing multiple decimals to appear.
+
 //5) add button noises
 //6 add a press effect
