@@ -24,24 +24,38 @@ class Calculator {
   }
 
   appendNumber(number) {
+    //clears the emory and screen if user attmepts to append to a calulated number
     if (this.prior !== "" && this.operator === "") {
       this.clearMemory();
       this.clear();
       this.updateDisplay();
     }
 
+    //if input is just a decimal on a blank screen, add the zero.
     if (this.screen === "" && number == ".") {
       this.screen = "0.";
     }
 
+    //This blocks numbers longer than 12 form beign added to avoid floating point weirdness.
     if (this.screen.length < 12) {
       this.screen += number;
     }
 
+    //prepares the string and converts the string to a Us float style
     this.screen = this.screen.replaceAll(",", "");
-    this.screen = parseFloat(this.screen).toLocaleString("en-US", {
-      maximumFractionDigits: 20,
-    });
+    const pattern = /\d*\.0$/;
+    if (pattern.test(String(this.screen))) {
+      //issue is any #0 passes this test
+      this.screen = parseFloat(this.screen).toLocaleString("en-US", {
+        maximumFractionDigits: 20,
+      });
+      this.screen += ".0";
+    } else {
+      this.screen = parseFloat(this.screen).toLocaleString("en-US", {
+        maximumFractionDigits: 20,
+      });
+    }
+
     if (number == "." && this.screen !== "") {
       this.screen += ".";
     }
@@ -185,11 +199,10 @@ equalButton.addEventListener("click", () => {
   }
 });
 
+//add the mobile compatibility
 //2) add the different preset backgrounds.
-//weird decimal behaviour to be solved.
-// problem is if we parse 9000.0 ecome 9,000
-// it can't do #.0, automaticall resets.
 // allowing multiple decimals to appear.
-
+//add keyboard suport
+//4: if you hit an operator and then you hit equals it hates that too
 //5) add button noises
 //6 add a press effect
