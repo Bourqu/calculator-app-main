@@ -49,21 +49,26 @@ class Calculator {
 
     //prepares the string and converts the string to a Us float style
     this.screen = this.screen.replaceAll(",", "");
-    const pattern = /\d*\.0$/;
-    if (pattern.test(String(this.screen))) {
+    const regexp1 = /\d*\.0$/;
+    const regexp2 = /\d*\.0*$/;
+    if (regexp1.test(String(this.screen))) {
       //issue is any #0 passes this test
       this.screen = parseFloat(this.screen).toLocaleString("en-US", {
         maximumFractionDigits: 20,
       });
       this.screen += ".0";
+    } else if (regexp2.test(String(this.screen))) {
+      const leftRight = this.screen.split(".");
+      this.screen =
+        parseFloat(leftRight[0]).toLocaleString("en-US", {
+          maximumFractionDigits: 20,
+        }) +
+        "." +
+        leftRight[1];
     } else {
       this.screen = parseFloat(this.screen).toLocaleString("en-US", {
         maximumFractionDigits: 20,
       });
-    }
-
-    if (number == "." && this.screen !== "") {
-      this.screen += ".";
     }
   }
 
@@ -213,21 +218,12 @@ equalButton.addEventListener("click", () => {
   }
 });
 
-
 //COMMENTS!!!!
 
 //add the mobile compatibility
 //2) add the different preset backgrounds.
-// issue, can do multiple 0.00
-// we know anything before the decimial has to e have commas, not the decimals thos
-// what if we split the string here, apply the us-locale to the left, then add the .###3 fter.
-
-
-
 
 //add keyboard suport
-//4: if you hit an operator and then you hit equals it hates that too
-//with a real calculator it jsut add this.screen
 
 //5) add button noises
 //6 add a press effect
