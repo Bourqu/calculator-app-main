@@ -24,6 +24,12 @@ class Calculator {
   }
 
   appendNumber(number) {
+    const regex = /\d*\.\d*/;
+
+    if (regex.test(this.screen) && number === ".") {
+      return;
+    }
+
     //clears the emory and screen if user attmepts to append to a calulated number
     if (this.prior !== "" && this.operator === "") {
       this.clearMemory();
@@ -82,6 +88,10 @@ class Calculator {
   subtract() {
     this.prior = String(this.screen);
     this.operator = "-";
+  }
+
+  equalError() {
+    this.screen = this.prior;
   }
 }
 
@@ -144,6 +154,10 @@ minusButton.addEventListener("click", () => {
 });
 
 equalButton.addEventListener("click", () => {
+  if (calculator.screen == "") {
+    calculator.equalError();
+  }
+  console.log(calculator.screen);
   switch (calculator.operator) {
     case "*":
       calculator.operator = "";
@@ -199,10 +213,21 @@ equalButton.addEventListener("click", () => {
   }
 });
 
+
+//COMMENTS!!!!
+
 //add the mobile compatibility
 //2) add the different preset backgrounds.
-// allowing multiple decimals to appear.
+// issue, can do multiple 0.00
+// we know anything before the decimial has to e have commas, not the decimals thos
+// what if we split the string here, apply the us-locale to the left, then add the .###3 fter.
+
+
+
+
 //add keyboard suport
 //4: if you hit an operator and then you hit equals it hates that too
+//with a real calculator it jsut add this.screen
+
 //5) add button noises
 //6 add a press effect
