@@ -219,11 +219,7 @@ equalButton.addEventListener("click", () => {
 });
 
 //COMMENTS!!!!
-
 //add the mobile compatibility
 //2) add the different preset backgrounds.
-
-//add keyboard suport
-
 //5) add button noises
 //6 add a press effect
