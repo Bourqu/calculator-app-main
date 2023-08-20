@@ -7,14 +7,14 @@
     
     /*Keys*/
     
-   --key-background: hsl(225, 21%, 49%);
-    --key-shadow: hsl(224, 28%, 35%);    
+   --alt-key-background: hsl(225, 21%, 49%);
+    --alt-key-shadow: hsl(224, 28%, 35%);    
     --equal-background: hsl(6, 63%, 50%);
     --toggle: hsl(6, 63%, 50%);
     --equal-shadow: hsl(6, 70%, 34%);
     
-    --alt-key-background: hsl(30, 25%, 89%);
-    --alt-key-shadow: hsl(28, 16%, 65%);
+    --key-background: hsl(30, 25%, 89%);
+    --key-shadow: hsl(28, 16%, 65%);
     
     /*Text*/
     
@@ -25,7 +25,8 @@
 }
 
 
-:root.two{/*backgrounds*/
+:root.two{
+    /*backgrounds*/
     --main-background: hsl(0, 0%, 90%);
     --toggle-background: hsl(0, 5%, 81%);
     ---keypad-background: hsl(0, 5%, 81%);
@@ -33,21 +34,21 @@
     
     /*Keys*/
     
-   --key-background: hsl(185, 42%, 37%);
-    --key-shadow: hsl(185, 58%, 25%);    
+   --alt-key-background: hsl(185, 42%, 37%);
+    --alt-key-shadow: hsl(185, 58%, 25%);    
     --equal-background: hsl(25, 98%, 40%);
     --toggle: hsl(25, 98%, 40%);
     --equal-shadow: hsl(25, 99%, 27%);
     
     --key-background: hsl(30, 25%, 89%);
-    --key-shadow: hsl(185, 99%, 25%);
+    --key-shadow: hsl(35, 11%, 61%);
     
     /*Text*/
     
     --keys-color: hsl(60, 10%, 19%);
     --screen-color: hsl(60, 10%, 19%);
     --del-reset:hsl(0,0%,100%);
-    --equal: hsl(0%,0%,100%);
+    --equal: hsl(0,0%,100%);
 }
 
 :root.three{
@@ -59,14 +60,14 @@
     
     /*Keys*/
     
-   --key-background: hsl(281, 89%, 26%);
-    --key-shadow: hsl(285, 91%, 52%);    
+   --alt-key-background: hsl(281, 89%, 26%);
+    --alt-key-shadow: hsl(285, 91%, 52%);    
     --equal-background: hsl(176, 100%, 44%);
     --toggle: hsl(176, 100%, 44%);
-    --equal-shadow: hsl(290, 70%, 36%);
+    --equal-shadow: hsl(177, 92%, 70%);
     
-    --alt-key-background: hsl(268, 47%, 21%);
-    --alt-key-shadow: hsl(290, 70%, 36%);
+    --key-background: hsl(268, 47%, 21%);
+    --key-shadow: hsl(290, 70%, 36%);
     
     /*Text*/
     
@@ -88,7 +89,7 @@
     *{
       font-size: 32px;
       font-family: 'League Spartan', sans-serif;
-      color: hsl(221, 14%, 31%);
+      color: var(--keys-color);
     }
 
     button{border:none;}
@@ -117,7 +118,7 @@
     }
 
     .calc-screen{
-      background-color:  hsl(224, 36%, 15%);
+      background-color:  var(--screen-background);
       margin: 0.5rem 0;
       font-size: 1.5rem;
       text-align: right;
@@ -125,7 +126,7 @@
       min-height: 2.25rem;
       width:16rem;
       border-radius: 10px;
-      color: hsl(0, 0%, 100%);
+      color: var(--screen-color);
       
     }
    
@@ -136,7 +137,7 @@
   justify-content: space-evenly;
   width:17.5rem;
   height:15rem;
-  background-color: hsl(223, 31%, 20%);
+  background-color: var(---keypad-background);
   border-radius: 10px;
 
 }
@@ -152,26 +153,26 @@
   margin: 0 0.5rem;
   height: 2.25rem;
   border-radius: 10px;
-  background-color:hsl(45, 7%, 89%);
-  box-shadow: 1px 1px hsl(35, 11%, 61%);
+  background-color:var(--key-background);
+  box-shadow: 1px 1px var(--key-shadow);
   
   
 }
 
 .calc-keyboard .del {
 
-background-color: hsl(225, 21%, 49%);
-box-shadow:1px 2px hsl(224, 28%, 35%);
-color: hsl(0, 0%, 100%);
+background-color: var(--alt-key-background);
+box-shadow:1px 2px var(--alt-key-shadow);
+color: var(--del-reset);
 border:none;
 
 
 }
 
 .calc-keyboard .equal {
-  background-color:  hsl(6, 63%, 50%);
-  box-shadow: 1px 2px hsl(6, 70%, 34%);
-  color: hsl(0, 0%, 100%);}
+  background-color: var(--equal-background);
+  box-shadow: 1px 2px var(--equal-shadow);
+  color: var(--equal);}
 
 .calc-keyboard .core {
   font-size: 42px;

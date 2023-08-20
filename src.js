@@ -1,3 +1,6 @@
+const root = document.documentElement;
+root.className = "three";
+
 class Calculator {
   constructor(screenText) {
     this.screenText = screenText;
