@@ -223,6 +223,6 @@ equalButton.addEventListener("click", () => {
 
 //COMMENTS!!!!
 //add the mobile compatibility
-//2) add the different preset backgrounds.
+//add the toggle effect behaviour.
+//fix the location
 //5) add button noises
-//6 add a press effect
