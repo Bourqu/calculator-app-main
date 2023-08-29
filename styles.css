@@ -221,25 +221,25 @@ border:none;
   transition:all 0.3s ease-in-out;
 }
 
-.tw-toggle input[value="false"]:checked ~ span{
+.tw-toggle input[value="one"]:checked ~ span{
   background:#e74c3c;
   left:2px;
   color:#fff;
 }
 
-.tw-toggle input[value="true"]:checked ~ span{
+.tw-toggle input[value="three"]:checked ~ span{
   background:#27ae60;
   left: 46px;
 }
-.tw-toggle input[value="-1"]:checked ~ span{
+.tw-toggle input[value="two"]:checked ~ span{
   background:#95A5A6;
   left: 23px;
 }
 
-.tw-toggle input[value="false"]:checked + label,.tw-toggle input[value="true"]:checked + label{
+.tw-toggle input[value="two"]:checked + label{
   color:#fff;
 }
-.tw-toggle input[value="-1"]:checked + label{
+.tw-toggle input[value="three"]:checked + label{
   color:#fff;
 }
 

@@ -104,6 +104,7 @@ class Calculator {
 }
 
 const screen = document.querySelector(".calc-screen");
+const toggles = document.querySelectorAll(".toggle");
 
 //all numbers
 const numberButtons = document.querySelectorAll("[data-number]");
@@ -122,12 +123,16 @@ const divideButton = document.querySelector("[data-divide]");
 
 const calculator = new Calculator(screen);
 
-//add an event listener
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
     calculator.appendNumber(button.innerText);
     calculator.updateDisplay();
   });
+});
+
+toggles.forEach((toggle) => {
+  toggle.addEventListener("click", () => (root.className = toggle.value));
+  console.log(toggle.value);
 });
 
 resetButton.addEventListener("click", () => {
@@ -224,5 +229,5 @@ equalButton.addEventListener("click", () => {
 //COMMENTS!!!!
 //add the mobile compatibility
 //add the toggle effect behaviour.
-//fix the location
+//fix the location of toggle
 //5) add button noises
