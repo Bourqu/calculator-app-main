@@ -181,10 +181,11 @@ border:none;
 
 .tw-toggle {
   /* background: #95A5A6; */
-  display: inline-block;
+  /*display: inline-block;*/
   padding: 2px 3px;
   border-radius: 20px;
   position:relative;
+  text-align: right;
   border: 2px solid #95A5A6;
 }
 
@@ -222,26 +223,21 @@ border:none;
 }
 
 .tw-toggle input[value="one"]:checked ~ span{
-  background:#e74c3c;
   left:2px;
-  color:#fff;
+  background: var(--equal-background)
 }
 
 .tw-toggle input[value="three"]:checked ~ span{
-  background:#27ae60;
   left: 46px;
+  background: var(--equal-background);
+
 }
 .tw-toggle input[value="two"]:checked ~ span{
-  background:#95A5A6;
+    background: var(--equal-background);
   left: 23px;
 }
 
-.tw-toggle input[value="two"]:checked + label{
-  color:#fff;
-}
-.tw-toggle input[value="three"]:checked + label{
-  color:#fff;
-}
+
 
 button:active {
             transform: scale(0.98);
